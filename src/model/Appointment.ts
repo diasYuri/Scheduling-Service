@@ -1,11 +1,15 @@
+// tslint:disable: variable-name
 import {
   Entity,
   Column,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
   CreateDateColumn,
+  ManyToOne,
+  JoinColumn,
 } from "typeorm";
-// tslint:disable: variable-name
+
+import User from "./User";
 
 @Entity("appointments")
 class Appointments {
@@ -14,6 +18,10 @@ class Appointments {
 
   @Column()
   provider_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "provider_id" })
+  provider: User;
 
   @Column("time with time zone")
   date: Date;
