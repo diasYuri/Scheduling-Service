@@ -12,7 +12,7 @@ import {
 import User from "./User";
 
 @Entity("appointments")
-class Appointments {
+class Appointment {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -33,4 +33,4 @@ class Appointments {
   updated_at: Date;
 }
 
-export default Appointments;
+export default Appointment;
