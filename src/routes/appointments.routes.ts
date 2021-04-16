@@ -27,6 +27,7 @@ appointmentsRouter.post('/', async(request, response) => {
       provider_id,
     });
 
+
     return response.json(appointment);
   } catch (err) {
     return response.status(400).json({ error: err.message });
