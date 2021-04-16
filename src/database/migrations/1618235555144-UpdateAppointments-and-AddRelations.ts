@@ -42,7 +42,6 @@ export class UpdateAppointmentsAndAddRelations1618235555144
       new TableColumn({
         name: "provider",
         type: "varchar",
-        isNullable: false,
       })
     );
   }
