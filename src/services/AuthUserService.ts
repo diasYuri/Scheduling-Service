@@ -1,5 +1,7 @@
 import { getRepository } from 'typeorm'
 import { compare } from 'bcrypt'
+import { sign } from 'jsonwebtoken'
+import authConfig from '../config/authConfig'
 
 import User from '../models/User'
 
@@ -9,9 +11,12 @@ interface Request{
 }
 
 interface Response{
-  id: string,
-  name: string,
-  email: string
+  user: {
+    id: string,
+    name: string,
+    email: string
+  }
+  token: string
 }
 
 export default class AuthUserService {
@@ -33,10 +38,18 @@ export default class AuthUserService {
       throw new Error('Invalid email/password combination!')
     }
 
+    const token = sign({}, authConfig.jwt.secretKey, {
+      subject: user.id,
+      expiresIn: authConfig.jwt.expiresIn,
+    })
+
     const authResponse = {
-      id: user.id,
-      name: user.name,
-      email: user.email
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email
+      },
+      token
     }
 
     return authResponse
