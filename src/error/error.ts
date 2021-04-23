@@ -1,7 +1,8 @@
-export class AppError extends Error {
-  public readonly statusCode: number
+export class AppError {
+  public readonly message: string;
+  public readonly statusCode: number;
   constructor(message: string, statusCode = 400) {
-    super(message);
-    this.statusCode = statusCode
+    this.message = message;
+    this.statusCode = statusCode;
   }
 }
