@@ -23,7 +23,7 @@ export default class CreateUserService {
       throw new AppError("Email andress already used", 401);
     }
 
-    const hashPassword = await hash(password, 8);
+    const hashPassword = await hash(password, 10);
 
     const user = usersRepository.create({
       name,

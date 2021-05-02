@@ -11,6 +11,11 @@ const upload = multer(uploadConfig);
 usersRouter.post("/", async (request, response) => {
   try {
     const { name, email, password } = request.body;
+
+    if (!name && !email && !password) {
+      throw new Error("invalid fields");
+    }
+
     const CreateUser = new CreateUserService();
 
     const user = await CreateUser.execute({
