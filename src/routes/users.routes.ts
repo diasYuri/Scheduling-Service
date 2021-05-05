@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ensureAuthenticated from "../middleware/ensureAuthenticated";
+import ensureAuthenticated from "../shared/database/middleware/ensureAuthenticated";
 import multer from "multer";
 import uploadConfig from "../config/upload";
 import UpdateUserAvatarService from "../modules/users/services/UpdateAvatarToUser";

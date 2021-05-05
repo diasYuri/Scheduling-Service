@@ -4,7 +4,7 @@ import { sign } from "jsonwebtoken";
 import authConfig from "../../../config/authConfig";
 
 import User from "../entities/User";
-import { AppError } from "../../../error/error";
+import { AppError } from "../../../shared/error/error";
 
 interface Request {
   email: string;
