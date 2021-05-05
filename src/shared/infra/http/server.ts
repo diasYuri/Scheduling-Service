@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
-import uploadConfig from "./config/upload";
+import uploadConfig from "../../../config/upload";
 
 import "./shared/database";
-import { AppError } from "./shared/error/error";
+import { AppError } from "../../error/error";
 import { errorHandler } from "./shared/database/middleware/errorHandle";
 
 import routes from "./routes";
