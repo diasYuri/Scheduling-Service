@@ -1,12 +1,12 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 import "express-async-errors";
 import uploadConfig from "../../../config/upload";
 
 import "./shared/database";
 import { AppError } from "../../error/error";
-import { errorHandler } from "./shared/database/middleware/errorHandle";
 
 import routes from "./routes";
+import { errorHandler } from "../../../modules/users/infra/http/middleware/errorHandle";
 
 const app = express();
 const port = 3030;
