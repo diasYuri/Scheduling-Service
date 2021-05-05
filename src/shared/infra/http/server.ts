@@ -2,8 +2,7 @@ import express from "express";
 import "express-async-errors";
 import uploadConfig from "../../../config/upload";
 
-import "./shared/database";
-import { AppError } from "../../error/error";
+import "../database";
 
 import routes from "./routes";
 import { errorHandler } from "../../../modules/users/infra/http/middleware/errorHandle";
